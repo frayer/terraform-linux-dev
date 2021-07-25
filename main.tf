@@ -58,7 +58,7 @@ resource "aws_spot_instance_request" "dev_instance" {
   key_name = "${var.ec2_keyname}"
   security_groups = ["${aws_security_group.allow_ssh.name}"]
 
-  # user_data = "${file("scripts/user_data.sh")}"
+  user_data = "${file("scripts/user_data.sh")}"
 
   wait_for_fulfillment = true
 
