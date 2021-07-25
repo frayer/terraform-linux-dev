@@ -24,8 +24,8 @@ aws ssm get-parameter --region us-east-2 --name "/dev-env/ssh/default-public-key
 # dot files
 #
 su ubuntu -lc "git clone https://github.com/frayer/terraform-linux-dev.git /tmp/terraform-linux-dev"
-su ubuntu -lc "mv /tmp/terraform-linux-dev/dot-files/.* \$HOME/"
+su ubuntu -lc "find /tmp/terraform-linux-dev/dot-files -type f -exec mv {} \$HOME/ \\;"
 rm -fr /tmp/terraform-linux-dev
 
-su ubuntu -lc "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+su ubuntu -lc 'sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended'
 su ubuntu -lc "mv .zshrc.pre-oh-my-zsh .zshrc"
