@@ -35,6 +35,6 @@ su ubuntu -lc "mv .zshrc.pre-oh-my-zsh .zshrc"
 #
 mkfs -t xfs /dev/nvme1n1
 mkdir /mnt/workspace
-chown ubuntu:ubuntu /mnt/workspace
 mount /dev/nvme1n1 /mnt/workspace
-ln -sf /mnt/workspace /home/ubuntu/workspace
+chown ubuntu:ubuntu /mnt/workspace
+su ubuntu -lc 'ln -sf /mnt/workspace /home/ubuntu/workspace'
